@@ -1,0 +1,12 @@
+[Unit]
+Description=csync2 server daemon
+Documentation=man:csync2(8)
+After=network.target
+
+[Service]
+ExecStart=/usr/sbin/csync2 -ii
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
